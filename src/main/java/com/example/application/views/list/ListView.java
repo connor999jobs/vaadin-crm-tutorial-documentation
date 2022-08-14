@@ -5,6 +5,7 @@ import com.example.application.data.service.CrmService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
@@ -45,6 +46,8 @@ public class ListView extends VerticalLayout {
     TextField filterText = new TextField();
     ContactForm form;
     CrmService service;
+    DatePicker datePicker = new DatePicker("Start date");
+
 
     public ListView(CrmService service) {
         this.service = service;
@@ -53,7 +56,7 @@ public class ListView extends VerticalLayout {
         configureGrid();
         configureForm();
 
-        add(getToolbar(), getContent());
+        add(getToolbar(), getContent(),  datePicker);
         updateList();
         closeEditor();
     }
